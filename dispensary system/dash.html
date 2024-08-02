@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label for="paymentMode">Mode of Payment</label>
+                <select id="paymentMode" name="paymentMode" required>
+                    <option value="nhif">NHIF</option>
+                    <option value="cash">Cash</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="doctor">Which Doctor</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="medical">Medical Doctor</option>
+                    <option value="counselor">Counselor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <button type="submit" class="btn">Book Now</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to alternate background images
+        let backgroundIndex = 0;
+        const backgrounds = ['pa1.jpg', 'pa2.jpg'];
+
+        function changeBackground() {
+            document.body.style.backgroundImage = `url('${backgrounds[backgroundIndex]}')`;
+            backgroundIndex = (backgroundIndex + 1) % backgrounds.length;
+        }
+
+        setInterval(changeBackground, 5000); // Change background every 5 seconds
+        changeBackground(); // Initial call to set the first background
+
+        // JavaScript to handle form submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Perform any additional validation or processing if needed
+            window.location.href = 'conf.html'; // Redirect to conf.html
+        });
+    </script>
+</body>
+</html>
